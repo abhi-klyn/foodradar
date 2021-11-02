@@ -1,2 +1,17 @@
-<h1>Hello world</h1>
-<p>This is my first rails page!</p>>
+<h1>Foods</h1>
+<%= form_tag(root_path, method: :get) do%>
+  <%= text_field_tag(:food_name, params[:food_name]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<tbody>
+<% @foods.each do |food| %>
+  <tr>
+    <td><%= food.food_name %></td>
+    <td><%= food.description %></td>
+    <td><%= food.price %></td>
+    <td><%= food.rating %></td>
+    <td><%= food.restaurant_name %></td>
+  </tr>
+<% end %>
+</tbody>
