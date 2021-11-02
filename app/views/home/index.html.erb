@@ -1,30 +1,37 @@
 <h1>FoodRadar</h1>
+
+<!--Uncomment below to toggle search by food -->
+
+<%#= form_tag(root_path, method: :get) do%>
+  <%#= text_field_tag(:food_name, params[:food_name]) %>
+  <%#= submit_tag ("Search") %>
+<%# end %>
+
+<!--Search by restaurant-->
 <%= form_tag(root_path, method: :get) do%>
-  <%= text_field_tag(:food_name, params[:food_name]) %>
+  <%= text_field_tag(:restaurant_name, params[:restaurant_name]) %>
   <%= submit_tag ("Search") %>
 <% end %>
 
 <table class="table">
   <thead>
   <tr>
-    <th scope="col">Food name</th>
-    <th scope="col">Description</th>
-    <th scope="col">Price</th>
-    <th scope="col">Rating</th>
-    <th scope="col">Restaurant name</th>
-    <th colspan="3"></th>
+    <th>Restaurant name</th>
+    <th>Address</th>
+    <th>Cuisine</th>
+    <th colspan="1"></th>
   </tr>
   </thead>
 
   <tbody>
-  <% @foods.each do |food| %>
+  <% @restaurants.each do |restaurant| %>
     <tr>
-      <td><%= food.food_name %></td>
-      <td><%= food.description %></td>
-      <td><%= food.price %></td>
-      <td><%= food.rating %></td>
-      <td><%= food.restaurant_name %></td>
+      <td><%= restaurant.restaurant_name %></td>
+      <td><%= restaurant.address %></td>
+      <td><%= restaurant.cuisine %></td>
+      <td><%= link_to 'Menu', restaurant %></td>
     </tr>
   <% end %>
   </tbody>
+</table>
 </table>
