@@ -4,14 +4,27 @@
   <%= submit_tag ("Search") %>
 <% end %>
 
-<tbody>
-<% @foods.each do |food| %>
+<table>
+  <thead>
   <tr>
-    <td><%= food.food_name %></td>
-    <td><%= food.description %></td>
-    <td><%= food.price %></td>
-    <td><%= food.rating %></td>
-    <td><%= food.restaurant_name %></td>
+    <th>Food name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Restaurant name</th>
+    <th colspan="3"></th>
   </tr>
-<% end %>
-</tbody>
+  </thead>
+
+  <tbody>
+  <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.food_name %></td>
+      <td><%= food.description %></td>
+      <td><%= food.price %></td>
+      <td><%= food.rating %></td>
+      <td><%= food.restaurant_name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
