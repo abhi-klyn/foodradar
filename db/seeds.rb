@@ -3,5 +3,80 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+restaurants = Restaurant.create([{restaurant_name: 'Mels Burger',
+                    address: '2850 Broadway, New York, NY 10025',
+                    cuisine: 'American'},
+                    {restaurant_name: 'Koronet Pizza',
+                    address: '2848 Broadway, New York, NY 10025',
+                    cuisine: 'Italian'},
+                    {restaurant_name: 'Atlas Kitchen',
+                    address: '258 W 109th St, New York, NY 10025',
+                    cuisine: 'Chinese'}
+                    ])
+
+foods = Food.create([
+                    # Mels
+                    {food_name: 'Chicken Burger',
+                    description: 'Chicken, Lettuce, Tomato, Cheese',
+                    price: '8',
+                    rating: '4',
+                    restaurant_name: 'Mels Burger'},
+                    {food_name: 'Beef Burger',
+                    description: 'Beef, Lettuce, Tomato, Cheese',
+                    price: '10',
+                    rating: '5',
+                    restaurant_name: 'Mels Burger'},
+                    {food_name: 'Turkey Burger',
+                    description: 'Turkey, Lettuce, Tomato, Cheese',
+                    price: '9',
+                    rating: '2',
+                    restaurant_name: 'Mels Burger'},
+                    {food_name: 'Pork Burger',
+                    description: 'Pork, Lettuce, Tomato, Cheese',
+                    price: '8',
+                    rating: '3',
+                    restaurant_name: 'Mels Burger'},
+                    # Koronet
+                    {food_name: 'Cheese Pizza',
+                    description: 'Cheese',
+                    price: '8',
+                    rating: '4',
+                    restaurant_name: 'Koronet Pizza'},
+                    {food_name: 'Pepperoni Pizza',
+                    description: 'Pepperoni Cheese',
+                    price: '10',
+                    rating: '5',
+                    restaurant_name: 'Koronet Pizza'},
+                    {food_name: 'Meat Lover Pizza',
+                    description: 'Pork, Turkey, Beef, Ham, Pepperoni, Cheese',
+                    price: '9',
+                    rating: '2',
+                    restaurant_name: 'Koronet Pizza'},
+                    {food_name: 'Vegetarian Pizza',
+                    description: 'Tomato, Avocado, Pineapple, Cheese',
+                    price: '8',
+                    rating: '3',
+                    restaurant_name: 'Koronet Pizza'},
+                    # Atlas Kitchen
+                    {food_name: 'Spicy Fried Chicken',
+                    description: 'Chicken, Red Chilli',
+                    price: '8',
+                    rating: '4',
+                    restaurant_name: 'Atlas Kitchen'},
+                    {food_name: 'Spicy Rice Noodles',
+                    description: 'Rice Noodles, Beef, Red Chilli',
+                    price: '10',
+                    rating: '5',
+                    restaurant_name: 'Atlas Kitchen'},
+                    {food_name: 'Fried Rice',
+                    description: 'Rice, Egg, Ham, Green Beans, Carrot',
+                    price: '9',
+                    rating: '2',
+                    restaurant_name: 'Atlas Kitchen'},
+                    {food_name: 'Shrimp Dumplings',
+                    description: 'Shrimp, Cilantro, Cabbage',
+                    price: '8',
+                    rating: '3',
+                    restaurant_name: 'Atlas Kitchen'}])
+
+
