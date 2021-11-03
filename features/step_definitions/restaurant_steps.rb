@@ -10,12 +10,45 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-# Single-line step scoper
+Given /the following restaurants exist/ do |restaurants_table|
+  restaurants_table.hashes.each do |restaurant|
+    Restaurant.create restaurant
+  end
+end
+
+Given /the following foods exist/ do |foods_table|
+  foods_table.hashes.each do |food|
+    Food.create food
+  end
+end
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+  expect(page.body.index(e1) < page.body.index(e2))
+end
+
+Then /I should see all the foods/ do
+  Restaurant.all.each do |restaurant|
+    step %{I should see "#{restaurant.food_name}"}
+  end
+end
+
+When /^I search restaurant "(.*)"$/ do |query|
+  fill_in('restaurant_name', :with => query)
+  click_button("Search Restaurant")
+end
+
+When /^(?:|I )follow "([^"]*)" for "([^"]*)"$/ do |value, restaurant|
+  fill_in(field, :with => value)
+end
+
+When /^(?:|I )go to (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
 end
 
-# Multi-line step scoper
 When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
@@ -44,17 +77,6 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
-# Use this to fill in an entire form with data from a table. Example:
-#
-#   When I fill in the following:
-#     | Account Number | 5002       |
-#     | Expiry date    | 2009-11-01 |
-#     | Note           | Nice guy   |
-#     | Wants Email?   |            |
-#
-# TODO: Add support for checkbox, select or option
-# based on naming conventions.
-#
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}

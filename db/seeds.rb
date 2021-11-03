@@ -4,7 +4,7 @@
 # Examples:
 #
 restaurants = Restaurant.create([{restaurant_name: 'Mels Burger',
-                    address: 'between 110th and, 2850 Broadway, New York, NY 10025',
+                    address: '2850 Broadway, New York, NY 10025',
                     cuisine: 'American'},
                     {restaurant_name: 'Koronet Pizza',
                     address: '2848 Broadway, New York, NY 10025',
