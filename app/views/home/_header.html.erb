@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <%= link_to 'Foodradar', root_path, class:"navbar-brand" %>
-<!--    <a class="navbar-brand" href="#">Foodradar</a>-->
+  <div class="navbar-header">
+    <a class="navbar-brand" href="">
+      <%= image_tag(asset_path('logo.png'), :alt => "FoodRadar", :width => 300) %>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,11 +10,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
 
-
-      <form class="d-flex">
+      <!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form>-->
     </div>
   </div>
 </nav>

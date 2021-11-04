@@ -1,6 +1,4 @@
-<h1>FoodRadar</h1>
-
-<!--Uncomment below to toggle search by food -->
+<!-- To be implemented in iter2: Search by food -->
 
 <%#= form_tag(root_path, method: :get) do%>
   <%#= text_field_tag(:food_name, params[:food_name]) %>
@@ -8,7 +6,7 @@
 <%# end %>
 
 <!--Search by restaurant-->
-<%= form_tag(root_path, method: :get) do%>
+<%= form_tag(root_path, method: :get) do %>
   <%= text_field_tag(:restaurant_name, params[:restaurant_name]) %>
   <%= submit_tag("Search Restaurant") %>
 <% end %>
