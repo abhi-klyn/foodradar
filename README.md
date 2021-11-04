@@ -1,6 +1,6 @@
 Readme — instructions to compile and run the app
 
-Team project: Food Radar app
+Team project: FoodRadar
 
 Member 1 Name: Samuel Oh
 Member 1 UNI: so2604
@@ -12,7 +12,10 @@ Member 4 Name: Abhishek Kalyan Adupa
 Member 4 UNI: aa4761
 
 ##Instructions to run the app
-The app was developed using Ruby 3.0.0 and Rails 6.1.4.1
+You can find our project deployed on Heroku in the following link:
+https://proj-foodradar.herokuapp.com
+
+This app was developed using Ruby 3.0.0 and Rails 6.1.4.1
 
 First, you need to install these versions of ruby and rails, and ensure they are working correctly.
 Running 
@@ -32,7 +35,7 @@ git clone https://github.com/abhi-klyn/foodradar.git
 ```
 After entering the project directory, you should run:
 ```
-Bundle install
+bundle install
 ```
 To install all dependencies listed on our gem file. You also need to install webpacker
 ```
@@ -49,23 +52,19 @@ rails db:seed
 ```
 Now, you just need to run the server
 ```
-rails s
+rails server
 ```
-And open our project on your browser. Alternatively, you can see our project on heroku:
-
-https://proj-foodradar.herokuapp.com
+And open our project on your browser. 
 
 For testing, you can simply run
-
 ```
 rake spec cucumber
 ```
+
 And see all test cases we created. Coverage report has been added and can be displayed on
-app/coverage/index.html 
-We ignored the coverage on the test files themselves (As there are test functions that might be useful later, and including those were hurting understanding the real coverage of the code we developed)
+app/coverage/index.html
+Currently, the test covers 100% of the features implemented for iter1.
 
-
-
-
-
-
+We applied a filter to ignore the coverage on the test files themselves. We also commented out codes
+that are are not part of iter1 (but will later be used for iter2), because they are not part of the
+basic features we intended to implement, and therefore are not required to be covered by tests.
