@@ -1,24 +1,22 @@
-Readme — instructions to compile and run the app
+# Group 32 FoodRadar
 
-Team project: FoodRadar
+- Member 1 Name: Samuel Oh
+- Member 1 UNI: so2604
+- Member 2 Name: Lucas Bamidele Tinoco Kalejaiye
+- Member 2 UNI: lt2803
+- Member 3 Name: Brian Paick
+- Member 3 UNI: bsp2121
+- Member 4 Name: Abhishek Kalyan Adupa
+- Member 4 UNI: aa4761
 
-Member 1 Name: Samuel Oh
-Member 1 UNI: so2604
-Member 2 Name: Lucas Bamidele Tinoco Kalejaiye
-Member 2 UNI: lt2803
-Member 3 Name: Brian Paick
-Member 3 UNI: bsp2121
-Member 4 Name: Abhishek Kalyan Adupa
-Member 4 UNI: aa4761
-
-##Instructions to run the app
+## Instructions to run the app
 You can find our project deployed on Heroku in the following link:
 https://proj-foodradar.herokuapp.com
 
 This app was developed using Ruby 3.0.0 and Rails 6.1.4.1
 
 First, you need to install these versions of ruby and rails, and ensure they are working correctly.
-Running 
+Running
 ```
 ruby --version
 ```
@@ -27,7 +25,7 @@ And
 rails --version
 ```
 will yield the current version of these frameworks.
-You should also ensure that you have node.js installed in a stable version (we used 14.16.0 for this project)
+You should also ensure that you have Node.js installed in a stable version (we used 14.16.0 for this project)
 
 Afterward, you should clone our git repo
 ```
@@ -61,8 +59,8 @@ For testing, you can simply run
 rake spec cucumber
 ```
 
-And see all test cases we created. Coverage report has been added and can be displayed on
-app/coverage/index.html
+And see all test cases we created. Coverage report has been generated and is located at:
+- app/coverage/index.html
 Currently, the test covers 100% of the features implemented for iter1.
 
 We applied a filter to ignore the coverage on the test files themselves. We also commented out codes
