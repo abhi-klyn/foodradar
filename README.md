@@ -1,4 +1,4 @@
-# Group 32 FoodRadar
+# ESaaS Group 32: FoodRadar
 
 - Member 1 Name: Samuel Oh
 - Member 1 UNI: so2604
@@ -9,9 +9,10 @@
 - Member 4 Name: Abhishek Kalyan Adupa
 - Member 4 UNI: aa4761
 
-## Instructions to run the app
-You can find our project deployed on Heroku in the following link:
+## Project link deployed on Heroku:
 https://proj-foodradar.herokuapp.com
+
+## Instructions to run the app
 
 This app was developed using Ruby 3.0.0 and Rails 6.1.4.1
 
@@ -54,6 +55,7 @@ rails server
 ```
 And open our project on your browser. 
 
+
 For testing, you can simply run
 ```
 rake spec cucumber
@@ -61,8 +63,9 @@ rake spec cucumber
 
 And see all test cases we created. Coverage report has been generated and is located at:
 - app/coverage/index.html
+
 Currently, the test covers 100% of the features implemented for iter1.
 
-We applied a filter to ignore the coverage on the test files themselves. We also commented out codes
-that are are not part of iter1 (but will later be used for iter2), because they are not part of the
-basic features we intended to implement, and therefore are not required to be covered by tests.
+We applied a filter to ignore the coverage on the test files themselves.
+
+We also commented out codes here and there that are are not part of iter1 (but will later be used for iter2 , because they are not part of the basic features we intended to implement for iter1.
