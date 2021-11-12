@@ -55,22 +55,9 @@
   </tbody>
 </table>
 
-<%= form_with(model: Review) do |form| %>
-
-  <div class="field">
-    <%= form.label :review_text %>
-    <%= form.text_area :review_text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :restaurant_name %>
-    <%= form.text_field :restaurant_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <%= link_to 'Submit', new_review_path(form)%>
+<%= form_tag(restaurants_save_path, method: :post) do %>
+  <%= text_field_tag(:review_text, params[:review_text]) %>
+  <%= text_field_tag(:username, params[:username]) %>
+  <% params[:rname] = @restaurant[:restaurant_name] %>
+  <%= submit_tag("Submit Review") %>
 <% end %>
