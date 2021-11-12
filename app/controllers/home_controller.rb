@@ -6,5 +6,9 @@ class HomeController < ApplicationController
     #else
       @restaurants = Restaurant.search(params[:restaurant_name])
     #end
+    records = execute_statement("SELECT * FROM restaurants")
+    records.each do |row|
+        puts row
+    end
   end
 end

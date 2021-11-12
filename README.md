@@ -12,6 +12,9 @@
 ## Project link deployed on Heroku:
 https://proj-foodradar.herokuapp.com
 
+## Project link on GitHub:
+https://github.com/abhi-klyn/foodradar.git
+
 ## Instructions to run the app
 
 This app was developed using Ruby 3.0.0 and Rails 6.1.4.1
