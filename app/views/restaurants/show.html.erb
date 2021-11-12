@@ -28,7 +28,9 @@
     <th colspan="3"></th>
   </tr>
   </thead>
+</table>
 
+<table class="table">
   <tbody>
   <% @foods.each do |food| %>
     <tr>
@@ -40,3 +42,35 @@
   <% end %>
   </tbody>
 </table>
+
+<br><br>
+<table class="table">
+  <tbody>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.username %></td>
+      <td><%= review.review_text %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= form_with(model: Review) do |form| %>
+
+  <div class="field">
+    <%= form.label :review_text %>
+    <%= form.text_area :review_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_name %>
+    <%= form.text_field :restaurant_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <%= link_to 'Submit', new_review_path(form)%>
+<% end %>
