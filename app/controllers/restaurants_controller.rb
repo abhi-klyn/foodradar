@@ -10,14 +10,14 @@ class RestaurantsController < ApplicationController
   end
 
   def save
-    puts params
+    # puts params
     @new_review = Review.new()
-    @new_review.restaurant_name = "random"
+    @new_review.restaurant_name = params[:restaurant][:restaurant_name]
     @new_review.review_text = params[:review_text]
     @new_review.username = params[:username]
      respond_to do |format|
        if @new_review.save
-         format.html { redirect_to @restaurant, notice: "Restaurant was successfully created." }
+         format.html { redirect_to request.referrer, notice: "Review was successfully created." }
        else
          format.html { render :new, status: :unprocessable_entity }
          format.json { render json: @restaurant.errors, status: :unprocessable_entity }
@@ -29,6 +29,7 @@ class RestaurantsController < ApplicationController
   def show
     @foods = Food.searchByRestaurant(@restaurant[:restaurant_name])
     @reviews = Review.searchByRestaurant(@restaurant[:restaurant_name])
+    # puts(@reviews)
   end
 
   # GET /restaurants/new
