@@ -21,20 +21,15 @@ class HomeController < ApplicationController
     
     @restaurants = nil
     if params[:restaurant_name] && params[:restaurant_name] != ""
-      puts "here"
-      
-      
       restaurant_list = []
       records = execute_statement("SELECT DISTINCT restaurant_name FROM restaurants WHERE LOWER(restaurant_name) LIKE LOWER('%"+params[:restaurant_name]+"%')")
-      if records
-        records.each do |row|
-          restaurant_list.push(Restaurant.search(row.fetch("restaurant_name")))
-        end
-      
+      if records    
         len = records.length()
-        puts len
+
+        # set @restaurants to first match
         @restaurants = Restaurant.search(records[0].fetch("restaurant_name"))
 
+        # merge any other matches with existing restaurant
         for i in 1..len-1 do
           @restaurants = @restaurants.or(Restaurant.search(records[i].fetch("restaurant_name")))
         end
@@ -44,24 +39,11 @@ class HomeController < ApplicationController
       end
 
     elsif params[:restaurant_name] == ""
-      puts "elsif"
-      params[:restaurant_name] = nil
-      @restaurants = Restaurant.search(params[:restaurant_name])
+      @restaurants = Restaurant.search(nil)
     else
-      puts "else"
       @restaurants = Restaurant.search(params[:restaurant_name])
-      puts "class"
-      puts @restaurants.class
-      puts "class"
-      puts @restaurants
+
     end
     
-    
-    
-    
-
-    
-
-
   end
 end
