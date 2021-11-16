@@ -21,7 +21,6 @@ class HomeController < ApplicationController
     
     @restaurants = nil
     if params[:restaurant_name] && params[:restaurant_name] != ""
-      restaurant_list = []
       records = execute_statement("SELECT DISTINCT restaurant_name FROM restaurants WHERE LOWER(restaurant_name) LIKE LOWER('%"+params[:restaurant_name]+"%')")
       if records    
         len = records.length()
