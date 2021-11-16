@@ -1,8 +1,7 @@
-Feature: search for food by its name
+Feature: search for restaurant and visit its menu page
 
-  As a food buff
-  So that I can find food with my favorite restaurant
-  I want to include and search on restaurant information in food I enter
+  The homepage consists of a list of restaurants.
+  I want to search for a restaurant by its name and be able to see its menu
 
 Background: food in database
 
