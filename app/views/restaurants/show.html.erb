@@ -72,8 +72,8 @@
 
 <%= form_tag(restaurants_save_path, method: :post) do %>
   <%= hidden_field(:restaurant, :restaurant_name) %>
-  <%= text_field_tag(:review_text, params[:review_text], placeholder: "review") %>
-  <%= text_field_tag(:username, params[:username], placeholder: "user name") %>
+  <%= text_field_tag(:username, params[:username], placeholder: "User Name") %>
+  <%= text_field_tag(:review_text, params[:review_text], placeholder: "Review") %>
   <% params[:rname] = @restaurant[:restaurant_name] %>
   <%= submit_tag("Submit Review") %>
 <% end %>
