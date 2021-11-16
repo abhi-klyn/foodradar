@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
     @new_review.restaurant_name = params[:restaurant][:restaurant_name]
     @new_review.review_text = params[:review_text]
     @new_review.username = params[:username]
+    process_review(params[:review_text])
      respond_to do |format|
        if @new_review.save
          format.html { redirect_to request.referrer, notice: "Review was successfully created." }
@@ -23,6 +24,24 @@ class RestaurantsController < ApplicationController
          format.json { render json: @restaurant.errors, status: :unprocessable_entity }
        end
      end
+  end
+
+  def process_review(review_text)
+    statement = "SELECT foods.food_name, similarity(foods.food_name, '#{review_text}') AS score FROM foods JOIN restaurants ON foods.restaurant_name = restaurants.restaurant_name order by score desc limit 1"
+    puts statement
+    records = execute_statement(statement)
+    records.each do |row|
+      puts row
+    end
+  end
+
+  def execute_statement(sql)
+    results = ActiveRecord::Base.connection.exec_query(sql)
+    if results.present?
+      return results
+    else
+      return nil
+    end
   end
 
   # GET /restaurants/1 or /restaurants/1.json
