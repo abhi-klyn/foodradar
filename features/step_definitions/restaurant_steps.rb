@@ -22,6 +22,12 @@ Given /the following foods exist/ do |foods_table|
   end
 end
 
+Given /the following reviews exist/ do |reviews_table|
+  reviews_table.hashes.each do |review|
+    Review.create review
+  end
+end
+
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   expect(page.body.index(e1) < page.body.index(e2))
 end
@@ -35,6 +41,12 @@ end
 When /^I search restaurant "(.*)"$/ do |query|
   fill_in('restaurant_name', :with => query)
   click_button("Search Restaurant")
+end
+
+When /^I submit a review with username: "(.*)" and text: "(.*)"$/ do |query1, query2|
+  fill_in('username', :with => query1)
+  fill_in('review_text', :with => query2)
+  click_button("Submit")
 end
 
 When /^(?:|I )follow "([^"]*)" for "([^"]*)"$/ do |value, restaurant|

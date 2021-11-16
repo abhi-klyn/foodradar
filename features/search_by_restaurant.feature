@@ -1,8 +1,7 @@
-Feature: search for food by its name
+Feature: search for restaurant and visit its menu page
 
-  As a food buff
-  So that I can find food with my favorite restaurant
-  I want to include and search on restaurant information in food I enter
+  The homepage consists of a list of restaurants.
+  I want to search for a restaurant by its name and be able to see its menu
 
 Background: food in database
 
@@ -49,23 +48,23 @@ Scenario: I search for another restaurant
 Scenario: I want to see the menu for a restaurant, and back button working properly
   Given I am on the home page
   And I search restaurant "Mels Burger"
-  And I follow "Menu"
+  And I press "Menu"
   Then I should see "Mels Burger"
   And I should not see "Koronet Pizza"
   Then I should see "Chicken Burger" before "Beef Burger"
   And I should see "Chicken, Lettuce, Tomato, Cheese" before "Beef, Lettuce, Tomato, Cheese"
-  Then I follow "Back"
+  Then I press "Back to main page"
   Then I should see "Mels Burger" before "Koronet Pizza"
   And I should see "Koronet Pizza" before "Atlas Kitchen"
 
 Scenario: I want to see the menu for another restaurant, and back button working properly
   Given I am on the home page
   And I search restaurant "Koronet Pizza"
-  And I follow "Menu"
+  And I press "Menu"
   Then I should see "Koronet Pizza"
   And I should not see "Atlas Kitchen"
   Then I should see "Pepperoni Pizza" before "Meat Lover Pizza"
   And I should see "Pork, Turkey, Beef, Ham, Pepperoni, Cheese" before "Tomato, Avocado, Pineapple, Cheese"
-  Then I follow "Back"
+  Then I press "Back to main page"
   Then I should see "Mels Burger" before "Koronet Pizza"
   And I should see "Koronet Pizza" before "Atlas Kitchen"
