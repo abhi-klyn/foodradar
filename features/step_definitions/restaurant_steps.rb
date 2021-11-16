@@ -46,7 +46,7 @@ end
 When /^I submit a review with username: "(.*)" and text: "(.*)"$/ do |query1, query2|
   fill_in('username', :with => query1)
   fill_in('review_text', :with => query2)
-  click_button("Submit Review")
+  click_button("Submit")
 end
 
 When /^(?:|I )follow "([^"]*)" for "([^"]*)"$/ do |value, restaurant|

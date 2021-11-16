@@ -32,7 +32,7 @@ Background: food in database
 Scenario: I want to enter a restaurant's menu page and submit a review
   Given I am on the home page
   And I search restaurant "Mels Burger"
-  And I follow "Menu"
+  And I press "Menu"
   Then I should see "Samuel" before "Lucas"
   And I should see "Chicken Burger was amazing!" before "Turkey Burger was okay"
   When I submit a review with username: "John" and text: "Beef Burger was okay"
@@ -42,7 +42,7 @@ Scenario: I want to enter a restaurant's menu page and submit a review
 Scenario: I want to enter another restaurant's menu page and submit a review
   Given I am on the home page
   And I search restaurant "Koronet Pizza"
-  And I follow "Menu"
+  And I press "Menu"
   Then I should see "Abhishek" before "Brian"
   And I should see "Pepperoni Pizza was horrible" before "Vegetarian Pizza is the best"
   When I submit a review with username: "Jason" and text: "Cheese Pizza is tasty"
