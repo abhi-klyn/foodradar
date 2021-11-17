@@ -9,7 +9,7 @@ class Food < ApplicationRecord
 
   def self.searchByRestaurant(restaurant)
     if not restaurant.nil?
-      self.where(restaurant_name: restaurant)
+      self.where(restaurant_name: restaurant).order(rating: :desc)
     else
       return nil
     end
