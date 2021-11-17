@@ -232,6 +232,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sentimental (1.5.0)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -295,6 +296,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
   selenium-webdriver
+  sentimental (~> 1.5)
   simplecov
   spring
   turbolinks (~> 5)
