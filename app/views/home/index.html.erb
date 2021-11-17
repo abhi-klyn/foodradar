@@ -7,9 +7,17 @@
 
 <!--Search by restaurant-->
 <%= form_tag(root_path, method: :get) do %>
-  <%= text_field_tag(:restaurant_name, params[:restaurant_name]) %>
-  <%= submit_tag("Search Restaurant") %>
+  <div class="row">
+    <div class="col-3">
+      <%= text_field_tag(:restaurant_name, params[:restaurant_name], class: "form-control") %>
+    </div>
+    <div class="col">
+      <%= submit_tag("Search Restaurant", class: "btn btn-primary") %>
+    </div>
+  </div>
 <% end %>
+
+<br>
 
 <table class="table">
   <thead>
@@ -27,9 +35,14 @@
       <td><%= restaurant.restaurant_name %></td>
       <td><%= restaurant.address %></td>
       <td><%= restaurant.cuisine %></td>
-      <td><%= link_to 'Menu', restaurant %></td>
+      <td><%= button_to 'Menu', restaurant, method: :get, class: "btn btn-outline-info" %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-</table>
+
+Rather search by food?
+<%= form_tag("/foods", method: :get) do%>
+  <%= text_field_tag(:food_name, params[:food_name]) %>
+  <%= submit_tag ("Search Foods") %>
+<% end %>
