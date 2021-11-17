@@ -28,7 +28,6 @@ class RestaurantsController < ApplicationController
 
   def process_review(review_text)
     statement = "SELECT foods.food_name, similarity(foods.food_name, '#{review_text}') AS score FROM foods JOIN restaurants ON foods.restaurant_name = restaurants.restaurant_name order by score desc limit 1"
-    puts statement
     records = execute_statement(statement)
     records.each do |row|
       puts row
