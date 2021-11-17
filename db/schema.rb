@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_215009) do
+ActiveRecord::Schema.define(version: 2021_11_17_030907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_215009) do
     t.string "food_name"
     t.string "description"
     t.integer "price"
-    t.integer "rating"
+    t.integer "rating", default: 10
     t.string "restaurant_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

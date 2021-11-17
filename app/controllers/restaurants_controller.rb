@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
     @new_review.restaurant_name = params[:restaurant][:restaurant_name]
     @new_review.review_text = params[:review_text]
     @new_review.username = params[:username]
-    process_review(params[:review_text])
+    process_review(params[:review_text], params[:restaurant][:restaurant_name])
      respond_to do |format|
        if @new_review.save
          format.html { redirect_to request.referrer, notice: "Review was successfully created." }
@@ -26,16 +26,46 @@ class RestaurantsController < ApplicationController
      end
   end
 
-  def process_review(review_text)
-    statement = "SELECT foods.food_name, similarity(foods.food_name, '#{review_text}') AS score FROM foods JOIN restaurants ON foods.restaurant_name = restaurants.restaurant_name order by score desc limit 1"
+  def process_review(review_text, restaurant_name)
+    statement = "SELECT foods.food_name, similarity(foods.food_name, '#{review_text}') AS score FROM foods JOIN restaurants ON foods.restaurant_name = '#{restaurant_name}' order by score desc limit 1"
     records = execute_statement(statement)
+    records.each do |row|
+      puts row['food_name']
+      sentiment = get_sentiment(review_text)
+      if sentiment == :positive
+        modify_rating(row['food_name'], restaurant_name, 1)
+      elsif sentiment == :negative
+        modify_rating(row['food_name'], restaurant_name, -1)
+      end
+    end
+  end
+
+  def get_sentiment(review_text)
     analyzer = Sentimental.new
     analyzer.load_defaults
     analyzer.threshold = 0.1
-    puts analyzer.sentiment review_text
-    records.each do |row|
-      puts row
+    return analyzer.sentiment review_text
+  end
+
+  def modify_rating(food_name, restaurant_name, delta)
+    current_rating = get_rating(food_name, restaurant_name)
+    if not current_rating.nil? and (current_rating == 5 and delta > 0) or (current_rating == 0 and delta < 0)
+      return
     end
+    if not current_rating.nil?
+      current_rating += delta
+      set_rating_statement = "UPDATE foods SET rating = #{current_rating} where food_name = '#{food_name}' and restaurant_name = '#{restaurant_name}';"
+      execute_statement(set_rating_statement)
+    end
+  end
+
+  def get_rating(food_name, restaurant_name)
+    get_rating_statement = "SELECT rating from foods where food_name = '#{food_name}' and restaurant_name = '#{restaurant_name}';"
+    records = execute_statement(get_rating_statement)
+    records.each do |row|
+      return row['rating']
+    end
+    return nil
   end
 
   # GET /restaurants/1 or /restaurants/1.json
