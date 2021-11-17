@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_030907) do
     t.string "food_name"
     t.string "description"
     t.integer "price"
-    t.integer "rating", default: 10
+    t.integer "rating", default: 5
     t.string "restaurant_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
