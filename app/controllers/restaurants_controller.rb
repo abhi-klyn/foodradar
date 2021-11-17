@@ -1,6 +1,6 @@
 # ========= Lines commented out below are not used for iter1 ===========
 # ========= Will later be implemented and used in iter2 =========
-
+require 'sentimental'
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[ show edit update destroy ]
 
@@ -29,17 +29,12 @@ class RestaurantsController < ApplicationController
   def process_review(review_text)
     statement = "SELECT foods.food_name, similarity(foods.food_name, '#{review_text}') AS score FROM foods JOIN restaurants ON foods.restaurant_name = restaurants.restaurant_name order by score desc limit 1"
     records = execute_statement(statement)
+    analyzer = Sentimental.new
+    analyzer.load_defaults
+    analyzer.threshold = 0.1
+    puts analyzer.sentiment review_text
     records.each do |row|
       puts row
-    end
-  end
-
-  def execute_statement(sql)
-    results = ActiveRecord::Base.connection.exec_query(sql)
-    if results.present?
-      return results
-    else
-      return nil
     end
   end
 
@@ -47,7 +42,6 @@ class RestaurantsController < ApplicationController
   def show
     @foods = Food.searchByRestaurant(@restaurant[:restaurant_name])
     @reviews = Review.searchByRestaurant(@restaurant[:restaurant_name])
-    # puts(@reviews)
   end
 
   # GET /restaurants/new
