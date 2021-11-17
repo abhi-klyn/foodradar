@@ -45,6 +45,20 @@ Scenario: I search for another restaurant
   And I should not see "American"
   And I should not see "Atlas Kitchen"
 
+Scenario: I search for a restaurant substring
+  Given I am on the home page
+  And I search restaurant "mels"
+  Then I should see "Mels Burger"
+  And I should see "American"
+  And I should not see "Atlas Kitchen"
+
+Scenario: I search for a food
+  Given I am on the home page
+  And I search food "chicken"
+  Then I should see "Chicken Burger"
+  And I should see "Mels Burger"
+  And I should not see "Fried Rice"
+
 Scenario: I want to see the menu for a restaurant, and back button working properly
   Given I am on the home page
   And I search restaurant "Mels Burger"
