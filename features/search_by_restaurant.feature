@@ -3,7 +3,7 @@ Feature: search for restaurant and visit its menu page
   The homepage consists of a list of restaurants.
   I want to search for a restaurant by its name and be able to see its menu
 
-Background: food in database
+Background: restaurants and foods in database
 
   Given the following restaurants exist:
   | restaurant_name | address                            | cuisine  |

@@ -3,7 +3,7 @@ Feature: submit a review for a restaurant
   Each restaurant page (menu) has a list of reviews.
   I want to be able to submit new reviews and see the added reviews on the page.
 
-Background: food in database
+Background: restaurants, foods, and reviews in database
 
   Given the following restaurants exist:
   | restaurant_name | address                            | cuisine  |
