@@ -45,7 +45,7 @@ end
 
 When /^I search food "(.*)"$/ do |query|
   fill_in('food_name', :with => query)
-  click_button("Search Foods")
+  click_button("Search Food")
 end
 
 When /^I submit a review with username: "(.*)" and text: "(.*)"$/ do |query1, query2|

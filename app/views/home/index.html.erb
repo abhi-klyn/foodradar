@@ -1,21 +1,29 @@
-<!-- To be implemented in iter2: Search by food -->
-
-<%#= form_tag(root_path, method: :get) do%>
-  <%#= text_field_tag(:food_name, params[:food_name]) %>
-  <%#= submit_tag ("Search") %>
-<%# end %>
-
-<!--Search by restaurant-->
-<%= form_tag(root_path, method: :get) do %>
-  <div class="row">
-    <div class="col-3">
-      <%= text_field_tag(:restaurant_name, params[:restaurant_name], class: "form-control") %>
-    </div>
-    <div class="col">
-      <%= submit_tag("Search Restaurant", class: "btn btn-primary") %>
-    </div>
+<div class="row">
+  <div class="col">
+    <%= form_tag(root_path, method: :get) do %>
+      <div class="row">
+        <div class="col">
+          <%= text_field_tag(:restaurant_name, params[:restaurant_name], class: "form-control") %>
+        </div>
+        <div class="col">
+          <%= submit_tag("Search Restaurant", class: "btn btn-primary") %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <div class="col">
+    <%= form_tag("/foods", method: :get) do%>
+      <div class="row">
+        <div class="col">
+          <%= text_field_tag(:food_name, params[:food_name], class: "form-control") %>
+        </div>
+        <div class="col">
+          <%= submit_tag("Search Food", class: "btn btn-primary") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <br>
 
@@ -30,19 +38,14 @@
   </thead>
 
   <tbody>
-  <% @restaurants.each do |restaurant| %>
-    <tr>
-      <td><%= restaurant.restaurant_name %></td>
-      <td><%= restaurant.address %></td>
-      <td><%= restaurant.cuisine %></td>
-      <td><%= button_to 'Menu', restaurant, method: :get, class: "btn btn-outline-info" %></td>
-    </tr>
-  <% end %>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.restaurant_name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.cuisine %></td>
+        <td><%= button_to 'Menu', restaurant, method: :get, class: "btn btn-outline-info" %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
-Rather search by food?
-<%= form_tag("/foods", method: :get) do%>
-  <%= text_field_tag(:food_name, params[:food_name]) %>
-  <%= submit_tag ("Search Foods") %>
-<% end %>
