@@ -20,4 +20,6 @@
     text-align: center;
     width: 100%;
 }
-.navbar-brand {float:none;}
+.navbar-brand {
+    float:none;
+}

@@ -67,13 +67,8 @@ rake spec cucumber
 And see all test cases we created. Coverage report has been generated and is located at:
 - app/coverage/index.html
 
-For iteration 2, we focused on adding reviews, and being able to estimate whether the review of a plate is good or not. We first identify which food a review is about, and try to use a sentiment analysis to identify whether the review is good (+1) or bad (-1).
-This is the core and most important function of our app (as it is what differs us from what currently exists in the market). We now display the foods in rating order (best to worse).
+Currently, the test covers 100% of the features implemented for iter1.
 
-We had to use some postgreSQL specific functions, so a considerable amount of our backend is using "handmade" SQL queries to be able to use these functions, instead of the ORM ones we were using earlier.
+We applied a filter to ignore the coverage on the test files themselves.
 
-We added a food search as well, as we want to empower users to search for what they want to eat, rather than what restaurant they need to go to.
-
-Changes on usability were also added, such as improving the UI and including a better search system. Instead of exact matches in search, our search now matches with more loose constraints (ignore upper/lower cases, punctuation, etc.).
-
-We added tests to these new changes and make sure everything is still working! Some parts of our code were commented (such as editing and deleting entries), since they are not actual parts of our product, but were decreasing our coverage.
+We also commented out codes here and there that are are not part of iter1 (but will later be used for iter2 , because they are not part of the basic features we intended to implement for iter1.

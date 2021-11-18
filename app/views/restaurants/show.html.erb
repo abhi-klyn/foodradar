@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%= button_to 'Back to main page', root_path, method: :get, class: "btn btn-secondary" %>
+
+<br>
 
 <p>
   <strong>Restaurant name:</strong>
@@ -15,28 +17,73 @@
   <%= @restaurant.cuisine %>
 </p>
 
-<!--<%#= link_to 'Edit', edit_restaurant_path(@restaurant) %> |-->
-<%= link_to 'Back', root_path %>
+<br>
 
 <table class="table">
   <thead>
-  <tr>
-    <th scope="col">Food name</th>
-    <th scope="col">Description</th>
-    <th scope="col">Price</th>
-    <th scope="col">Rating</th>
-    <th colspan="3"></th>
-  </tr>
+    <tr>
+      <h4>Menu</h4>
+    </tr>
+    <tr>
+      <th scope="col">Food name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Rating</th>
+      <th colspan="3"></th>
+    </tr>
   </thead>
-
   <tbody>
   <% @foods.each do |food| %>
     <tr>
       <td><%= food.food_name %></td>
       <td><%= food.description %></td>
-      <td><%= food.price %></td>
-      <td><%= food.rating %></td>
+      <td>$ <%= number_with_precision(food.price, precision: 2) %></td>
+      <td><%= number_with_precision(food.rating, precision: 1) %> out of 5</td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <h4>Reviews</h4>
+    </tr>
+    <tr>
+      <th>User Name</th>
+      <th>Review Content</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.username %></td>
+      <td><%= review.review_text %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h4>Submit a Review</h4>
+
+<%= form_tag(restaurants_save_path, method: :post) do %>
+  <%= hidden_field(:restaurant, :restaurant_name) %>
+  <div class="row">
+    <div class="col-2">
+      <%= text_field_tag(:username, params[:username], placeholder: "User Name", class: "form-control") %>
+    </div>
+    <div class="col-8">
+      <%= text_field_tag(:review_text, params[:review_text], placeholder: "Review", class: "form-control") %>
+    </div>
+    <div class="col">
+      <% params[:rname] = @restaurant[:restaurant_name] %>
+      <%= submit_tag("Submit", class: "btn btn-success") %>
+    </div>
+  </div>
+  <br>
+
+<% end %>
