@@ -85,39 +85,39 @@ class RestaurantsController < ApplicationController
 
   # POST /restaurants or /restaurants.json
   def create
-   @restaurant = Restaurant.new(restaurant_params)
+   # @restaurant = Restaurant.new(restaurant_params)
 
-   respond_to do |format|
-     if @restaurant.save
-       format.html { redirect_to @restaurant, notice: "Restaurant was successfully created." }
-       format.json { render :show, status: :created, location: @restaurant }
-     else
-       format.html { render :new, status: :unprocessable_entity }
-       format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-     end
-   end
+   # respond_to do |format|
+   #   if @restaurant.save
+   #     format.html { redirect_to @restaurant, notice: "Restaurant was successfully created." }
+   #     format.json { render :show, status: :created, location: @restaurant }
+   #   else
+   #     format.html { render :new, status: :unprocessable_entity }
+   #     format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+   #   end
+   # end
   end
 
   # PATCH/PUT /restaurants/1 or /restaurants/1.json
   def update
-   respond_to do |format|
-     if @restaurant.update(restaurant_params)
-       format.html { redirect_to @restaurant, notice: "Restaurant was successfully updated." }
-       format.json { render :show, status: :ok, location: @restaurant }
-     else
-       format.html { render :edit, status: :unprocessable_entity }
-       format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-     end
-   end
+   # respond_to do |format|
+   #   if @restaurant.update(restaurant_params)
+   #     format.html { redirect_to @restaurant, notice: "Restaurant was successfully updated." }
+   #     format.json { render :show, status: :ok, location: @restaurant }
+   #   else
+   #     format.html { render :edit, status: :unprocessable_entity }
+   #     format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+   #   end
+   # end
   end
 
   # DELETE /restaurants/1 or /restaurants/1.json
   def destroy
-   @restaurant.destroy
-   respond_to do |format|
-     format.html { redirect_to restaurants_url, notice: "Restaurant was successfully destroyed." }
-     format.json { head :no_content }
-   end
+   # @restaurant.destroy
+   # respond_to do |format|
+   #   format.html { redirect_to restaurants_url, notice: "Restaurant was successfully destroyed." }
+   #   format.json { head :no_content }
+   # end
   end
 
   private

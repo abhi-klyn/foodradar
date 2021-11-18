@@ -44,39 +44,39 @@
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    # @food = Food.new(food_params)
 
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to @food, notice: "Food was successfully created." }
-        format.json { render :show, status: :created, location: @food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @food.save
+    #     format.html { redirect_to @food, notice: "Food was successfully created." }
+    #     format.json { render :show, status: :created, location: @food }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @food.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update
-    respond_to do |format|
-      if @food.update(food_params)
-        format.html { redirect_to @food, notice: "Food was successfully updated." }
-        format.json { render :show, status: :ok, location: @food }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @food.update(food_params)
+    #     format.html { redirect_to @food, notice: "Food was successfully updated." }
+    #     format.json { render :show, status: :ok, location: @food }
+    #   else
+    #     format.html { render :edit, status: :unprocessable_entity }
+    #     format.json { render json: @food.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /foods/1 or /foods/1.json
   def destroy
-    @food.destroy
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    # @food.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
