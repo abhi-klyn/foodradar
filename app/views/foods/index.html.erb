@@ -9,9 +9,9 @@
     <tr>
       <th scope="col">Food name</th>
       <th scope="col">Description</th>
-      <th scope="col">Price</th>
-      <th scope="col">Rating</th>
-      <th scope="col">Restaurant name</th>
+      <th class="<%= 'highlight' if params[:sort_by] == 'price'%>" scope="col"><%= link_to "Price", foods_path({:sort_by => 'price', :food_name => params[:food_name], :commit => params[:commit]}), id:'price_header'%></th>
+      <th class="<%= 'highlight' if params[:sort_by] == 'rating'%>" scope="col"><%= link_to "Rating", foods_path({:sort_by => 'rating', :food_name => params[:food_name], :commit => params[:commit]}), id:'rating_header'%></th>
+      <th class="<%= 'highlight' if params[:sort_by] == 'restaurant_name'%>" scope="col"><%= link_to "Restaurant name", foods_path({:sort_by => 'restaurant_name', :food_name => params[:food_name], :commit => params[:commit]}), id:'restaurant_name_header'%></th>
       <th colspan="3"></th>
     </tr>
   </thead>

@@ -44,5 +44,12 @@ class HomeController < ApplicationController
 
     end
     
+    if(params.has_key?(:sort_by))
+      if(params[:sort_by] == "restaurant_name")
+        @restaurants = @restaurants.sort_by(&:restaurant_name)
+      elsif(params[:sort_by] == "cuisine")
+        @restaurants = @restaurants.sort_by(&:cuisine)
+      end
+    end
   end
 end
