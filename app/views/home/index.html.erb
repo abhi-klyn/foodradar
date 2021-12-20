@@ -31,9 +31,9 @@
 <table class="table">
   <thead>
   <tr>
-    <th>Restaurant name</th>
+    <th class="<%= 'highlight' if params[:sort_by] == 'restaurant_name'%>"><%= link_to "Restaurant name", root_path({:sort_by => 'restaurant_name', :restaurant_name => params[:restaurant_name], :commit => params[:commit]}), id:'restaurant_header'%></th>
     <th>Address</th>
-    <th>Cuisine</th>
+    <th class="<%= 'highlight' if params[:sort_by] == 'cuisine'%>"><%= link_to "Cuisine", root_path({:sort_by => 'cuisine', :restaurant_name => params[:restaurant_name], :commit => params[:commit]}), id:'cuisine_header'%></th>
     <th colspan="1"></th>
   </tr>
   </thead>

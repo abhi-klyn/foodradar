@@ -27,6 +27,15 @@
       @foods = Food.search(params[:food_name])
 
     end
+    if(params.has_key?(:sort_by))
+      if(params[:sort_by] == 'rating')
+        @foods = @foods.sort_by(&:rating).reverse
+      elsif (params[:sort_by] == 'price')
+        @foods = @foods.sort_by(&:price)
+      elsif (params[:sort_by] == 'restaurant_name')
+        @foods = @foods.sort_by(&:restaurant_name)
+      end
+    end
   end
 
   # GET /foods/1 or /foods/1.json
