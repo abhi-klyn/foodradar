@@ -15,6 +15,9 @@ https://proj-foodradar.herokuapp.com
 ## Project link on GitHub:
 https://github.com/abhi-klyn/foodradar.git
 
+## Demo video (proj-demo) can be seen at:
+- https://www.youtube.com/watch?v=PgPb8PHTVHI
+
 ## Instructions to run the app
 
 This app was developed using Ruby 3.0.0 and Rails 6.1.4.1
@@ -43,8 +46,11 @@ To install all dependencies listed on our gem file. You also need to install web
 ```
 rails webpacker:install
 ```
-
-Then, if everything runs smoothly, you should perform a db migration
+Then, if everything runs smoothly, you should perform a db create first
+```
+rails db:create
+```
+Then, perform a db migration
 ```
 rails db:migrate
 ```
@@ -76,4 +82,4 @@ We added a food search as well, as we want to empower users to search for what t
 
 Changes on usability were also added, such as improving the UI and including a better search system. Instead of exact matches in search, our search now matches with more loose constraints (ignore upper/lower cases, punctuation, etc.).
 
-We added tests to these new changes and make sure everything is still working! Some parts of our code were commented (such as editing and deleting entries), since they are not actual parts of our product, but were decreasing our coverage.
+For iteration 3, we implemented the sort feature for columns to empower the users to easily navigate through the different items in the order they desire. We also added tests to these new changes and make sure everything is still working! We believe that we've implemented all the functionalities that we envisioned for this app in the beginning!

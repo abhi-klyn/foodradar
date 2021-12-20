@@ -1,24 +1,5 @@
 class HomeController < ApplicationController
-  def index
-    # Food search functionality is not part of the iter1 implementation
-    #if params.key?(:food_name)
-    #  @foods = Food.search(params[:food_name])
-    #else
-    
-    #puts "printing var restaurants"
-    #puts @restuarants
-    #end
-    '''
-    records = execute_statement("SELECT * FROM restaurants")
-    records.each do |row|
-        puts row
-    
-    puts params[:restaurant_name]
-    @records
-    end
-    '''
-
-    
+  def index    
     @restaurants = nil
     if params[:restaurant_name] && params[:restaurant_name] != ""
       records = execute_statement("SELECT DISTINCT restaurant_name FROM restaurants WHERE LOWER(restaurant_name) LIKE LOWER('%"+params[:restaurant_name]+"%')")
